@@ -158,6 +158,17 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+plt.tight_layout()
+plt.show()
+# Add for k-NN:
+y_probs_knn = knn.predict_proba(X_test)[:, 1]
+
+fpr_knn, tpr_knn, _ = roc_curve(y_test, y_probs_knn)
+roc_auc_knn = auc(fpr_knn, tpr_knn)
+
+precision_knn, recall_knn, _ = precision_recall_curve(y_test, y_probs_knn)
+avg_prec_knn = average_precision_score(y_test, y_probs_knn)
+
 #%% md
 # ## Model Evaluation Summary
 # 
